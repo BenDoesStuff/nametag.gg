@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 // Mock user and friend data
-let users = [
+const users = [
   { id: "1", displayName: "NeonNinja" },
   { id: "2", displayName: "PixelQueen" },
   { id: "3", displayName: "ClutchKing" },
@@ -10,7 +10,7 @@ let users = [
 ];
 
 // friends: { [userId]: [{ id, status }] }
-let friends: Record<string, { id: string; status: "pending" | "accepted" }[]> = {
+const friends: Record<string, { id: string; status: "pending" | "accepted" }[]> = {
   "5": [
     { id: "1", status: "accepted" },
     { id: "2", status: "pending" },
@@ -60,18 +60,17 @@ export async function DELETE(req: Request) {
   return NextResponse.json({ success: true });
 }
 
-// GET /api/friends/requests: List incoming friend requests for userId=5
-export async function GET_requests() {
+// Helper functions for friend requests and accepting
+// These need to be moved to separate route files for proper Next.js API structure
+function getIncomingRequests() {
   const userId = "5";
   const incoming = friendRequests.filter((r) => r.to === userId);
   const fromUsers = users.filter((u) => incoming.some((r) => r.from === u.id));
-  return NextResponse.json(fromUsers);
+  return fromUsers;
 }
 
-// POST /api/friends/accept: Accept a friend request (expects { friendId })
-export async function POST_accept(req: Request) {
+function acceptFriendRequest(friendId: string) {
   const userId = "5";
-  const { friendId } = await req.json();
   // Update both users' friend status
   friends[userId] = (friends[userId] || []).map((f) =>
     f.id === friendId ? { ...f, status: "accepted" } : f
@@ -83,5 +82,5 @@ export async function POST_accept(req: Request) {
   friendRequests = friendRequests.filter(
     (r) => !(r.from === friendId && r.to === userId)
   );
-  return NextResponse.json({ success: true });
+  return { success: true };
 } 

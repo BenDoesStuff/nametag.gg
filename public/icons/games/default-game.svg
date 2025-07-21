@@ -1,0 +1,25 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <!-- Game controller icon -->
+  <path d="M17.622 3.027c-.297-.297-.778-.297-1.075 0L15.72 3.854c-.148.148-.148.388 0 .536l.827.827c.148.148.388.148.536 0l.827-.827c.297-.297.297-.778 0-1.075l-.288-.288zM7.378 3.027c.297-.297.778-.297 1.075 0l.827.827c.148.148.148.388 0 .536L8.453 5.217c-.148.148-.388.148-.536 0l-.827-.827c-.297-.297-.297-.778 0-1.075l.288-.288z"/>
+  
+  <!-- Main controller body -->
+  <path d="M18.5 7H5.5C3.567 7 2 8.567 2 10.5v5C2 17.433 3.567 19 5.5 19h13c1.933 0 3.5-1.567 3.5-3.5v-5C22 8.567 20.433 7 18.5 7z"/>
+  
+  <!-- D-pad -->
+  <rect x="5" y="10" width="1" height="3" rx="0.5" fill="white"/>
+  <rect x="4" y="11" width="3" height="1" rx="0.5" fill="white"/>
+  
+  <!-- Action buttons -->
+  <circle cx="17" cy="10.5" r="0.8" fill="white"/>
+  <circle cx="18.5" cy="12" r="0.8" fill="white"/>
+  <circle cx="17" cy="13.5" r="0.8" fill="white"/>
+  <circle cx="15.5" cy="12" r="0.8" fill="white"/>
+  
+  <!-- Analog sticks -->
+  <circle cx="8.5" cy="13" r="1.2" fill="white" opacity="0.8"/>
+  <circle cx="8.5" cy="13" r="0.6" fill="currentColor"/>
+  
+  <!-- Shoulder buttons -->
+  <rect x="4" y="6" width="2" height="1" rx="0.5" fill="currentColor" opacity="0.6"/>
+  <rect x="18" y="6" width="2" height="1" rx="0.5" fill="currentColor" opacity="0.6"/>
+</svg>

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is "Gamefolio" - a Next.js 15 portfolio application for gamers to showcase their gaming profiles, link social accounts, and connect with other gamers. The app uses Supabase for authentication and data storage, with a dark gaming-themed UI styled with Tailwind CSS.
+This is "Nametag" - a Next.js 15 portfolio application for gamers to showcase their gaming profiles, link social accounts, and connect with other gamers. The app uses Supabase for authentication and data storage, with a dark gaming-themed UI styled with Tailwind CSS.
 
 ## Development Commands
 

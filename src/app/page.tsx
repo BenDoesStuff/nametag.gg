@@ -65,26 +65,29 @@ const featuredProfiles = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-950 to-gray-900 p-8">
-      <h1 className="text-4xl md:text-6xl font-extrabold text-neon-green mb-4 text-center drop-shadow-lg">
-        Welcome to Gamefolio
-      </h1>
-      <p className="text-gray-300 text-lg md:text-2xl mb-8 text-center max-w-xl">
-        Create your ultimate gamer profile. Link your accounts, show off your stats, and share your gaming identity with the world.
-      </p>
-      <Link
-        href="/profile"
-        className="px-6 py-3 rounded border-2 border-neon-green text-white font-bold text-lg shadow hover:bg-neon-green hover:text-gray-900 transition-colors mb-12"
-      >
-        View Sample Profile
-      </Link>
-      <section className="w-full max-w-7xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 text-center">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-gray-950 to-gray-900 p-4 sm:p-6 lg:p-8">
+      <div className="text-center mb-8 sm:mb-12">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-neon-green mb-4 drop-shadow-lg px-4">
+          Welcome to Nametag
+        </h1>
+        <p className="text-gray-300 text-base sm:text-lg md:text-xl lg:text-2xl mb-6 sm:mb-8 max-w-xl px-4">
+          Create your ultimate gamer profile. Link your accounts, show off your stats, and share your gaming identity with the world.
+        </p>
+        <Link
+          href="/profile"
+          className="inline-block px-4 sm:px-6 py-2 sm:py-3 rounded border-2 border-neon-green text-white font-bold text-sm sm:text-lg shadow hover:bg-neon-green hover:text-gray-900 transition-colors"
+        >
+          View Sample Profile
+        </Link>
+      </div>
+      
+      <section className="w-full max-w-7xl px-4">
+        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-4 sm:mb-6 text-center">
           Featured Profiles
         </h2>
-        <div className="flex flex-col md:flex-row gap-8 items-center justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 justify-items-center">
           {featuredProfiles.map((profile, idx) => (
-            <div key={idx} className="w-full md:w-1/3 max-w-md">
+            <div key={idx} className="w-full max-w-sm">
               <ProfileCard {...profile} />
             </div>
           ))}

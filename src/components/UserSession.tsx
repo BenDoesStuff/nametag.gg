@@ -18,7 +18,7 @@ const UserSession: React.FC = () => {
       if (data.user) {
         const { data: profileData } = await supabase
           .from("profiles")
-          .select("username")
+          .select("username, display_name")
           .eq("id", data.user.id)
           .single();
         setProfile(profileData);
@@ -30,7 +30,7 @@ const UserSession: React.FC = () => {
       if (session?.user) {
         supabase
           .from("profiles")
-          .select("username")
+          .select("username, display_name")
           .eq("id", session.user.id)
           .single()
           .then(({ data }) => setProfile(data));
@@ -56,27 +56,36 @@ const UserSession: React.FC = () => {
     <div className="relative flex items-center gap-2">
       <button
         onClick={() => setShowMenu((v) => !v)}
-        className="text-white text-sm font-bold px-2 py-1 rounded hover:bg-gray-800 border border-neon-green"
+        className="text-white text-xs sm:text-sm font-bold px-2 sm:px-3 py-2 rounded hover:bg-gray-800 border border-neon-green transition-colors"
       >
-        {profile?.display_name || user.email}
+        {profile?.display_name || user.email?.split('@')[0] || 'User'}
       </button>
       {showMenu && (
-        <div className="absolute right-0 mt-2 w-40 bg-gray-900 border border-gray-700 rounded shadow-lg z-50 flex flex-col">
+        <div className="absolute right-0 top-full mt-2 w-40 bg-gray-900 border border-gray-700 rounded shadow-lg z-50 flex flex-col">
           {profile && (
-            <Link
-              href={`/${profile.username}`}
-              className="px-4 py-2 text-sm text-white hover:bg-gray-800 border-b border-gray-800"
-              onClick={() => setShowMenu(false)}
-            >
-              My Profile
-            </Link>
+            <>
+              <Link
+                href={`/${profile.username}`}
+                className="px-4 py-2 text-sm text-white hover:bg-gray-800 border-b border-gray-800"
+                onClick={() => setShowMenu(false)}
+              >
+                My Profile
+              </Link>
+              <Link
+                href="/profile-editor"
+                className="px-4 py-2 text-sm text-white hover:bg-gray-800 border-b border-gray-800"
+                onClick={() => setShowMenu(false)}
+              >
+                Edit Profile
+              </Link>
+            </>
           )}
           <Link
-            href="/profile/edit"
+            href="/friends"
             className="px-4 py-2 text-sm text-white hover:bg-gray-800 border-b border-gray-800"
             onClick={() => setShowMenu(false)}
           >
-            Edit Profile
+            Friends
           </Link>
           <button
             onClick={handleLogout}
@@ -86,11 +95,17 @@ const UserSession: React.FC = () => {
           </button>
         </div>
       )}
+      {showMenu && (
+        <div
+          className="fixed inset-0 z-40"
+          onClick={() => setShowMenu(false)}
+        />
+      )}
     </div>
   ) : (
-    <div className="flex items-center gap-4">
-      <Link href="/login" className="text-white font-bold text-sm hover:underline">Log In</Link>
-      <Link href="/signup" className="text-neon-green font-bold text-sm hover:underline">Sign Up</Link>
+    <div className="flex items-center gap-2 sm:gap-4">
+      <Link href="/login" className="text-white font-bold text-xs sm:text-sm hover:underline">Log In</Link>
+      <Link href="/signup" className="text-neon-green font-bold text-xs sm:text-sm hover:underline">Sign Up</Link>
     </div>
   );
 };

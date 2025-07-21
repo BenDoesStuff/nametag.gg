@@ -1,0 +1,39 @@
+<svg width="300" height="400" viewBox="0 0 300 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="300" height="400" fill="url(#gradient)" />
+  
+  <!-- Gradient Definition -->
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1f2937;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#111827;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Game Controller Icon -->
+  <g transform="translate(150, 150)">
+    <!-- Controller body -->
+    <path d="M-60 -20 C-70 -20 -80 -10 -80 0 L-80 20 C-80 30 -70 40 -60 40 L60 40 C70 40 80 30 80 20 L80 0 C80 -10 70 -20 60 -20 Z" fill="#374151"/>
+    
+    <!-- D-pad -->
+    <rect x="-50" y="-5" width="15" height="3" rx="1" fill="#9ca3af"/>
+    <rect x="-44" y="-11" width="3" height="15" rx="1" fill="#9ca3af"/>
+    
+    <!-- Action buttons -->
+    <circle cx="35" cy="-8" r="4" fill="#9ca3af"/>
+    <circle cx="45" cy="2" r="4" fill="#9ca3af"/>
+    <circle cx="35" cy="12" r="4" fill="#9ca3af"/>
+    <circle cx="25" cy="2" r="4" fill="#9ca3af"/>
+    
+    <!-- Analog sticks -->
+    <circle cx="-25" cy="15" r="6" fill="#6b7280"/>
+    <circle cx="25" cy="15" r="6" fill="#6b7280"/>
+  </g>
+  
+  <!-- Text -->
+  <text x="150" y="280" text-anchor="middle" fill="#9ca3af" font-family="Arial, sans-serif" font-size="24" font-weight="bold">GAME</text>
+  <text x="150" y="310" text-anchor="middle" fill="#6b7280" font-family="Arial, sans-serif" font-size="16">IMAGE NOT FOUND</text>
+  
+  <!-- Border -->
+  <rect x="2" y="2" width="296" height="396" fill="none" stroke="#374151" stroke-width="2" rx="8"/>
+</svg>
